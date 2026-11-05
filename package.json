@@ -2,7 +2,7 @@
   "name": "hexliteral",
   "displayName": "Hexliteral",
   "description": "GZIP-compress and convert to a hexadecimal literal byte array",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "Hieromon",
   "license": "MIT",
   "repository": {
@@ -19,6 +19,16 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Hexliteral",
+      "properties": {
+        "hexliteral.showInContextMenu": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show Hexliteral commands in the Explorer context menu."
+        }
+      }
+    },
     "jsonValidation": [
       {
         "fileMatch": "hexliteral.json",
@@ -44,19 +54,19 @@
     ],
     "menus": {
       "explorer/context": [
-        {
+{
           "command": "hexliteral.convertHexliteral",
-          "when": "!explorerResourceIsFolder",
+          "when": "!explorerResourceIsFolder && config.hexliteral.showInContextMenu",
           "group": "hexliteral"
         },
         {
           "command": "hexliteral.convertHexliteralWithGzip",
-          "when": "!explorerResourceIsFolder",
+          "when": "!explorerResourceIsFolder && config.hexliteral.showInContextMenu",
           "group": "hexliteral"
         },
         {
           "command": "hexliteral.buildManifest",
-          "when": "resourceFilename == 'hexliteral.json'",
+          "when": "resourceFilename == 'hexliteral.json' && config.hexliteral.showInContextMenu",
           "group": "hexliteral"
         }
       ]

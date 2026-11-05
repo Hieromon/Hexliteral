@@ -4,6 +4,11 @@
   "description": "GZIP-compress and convert to a hexadecimal literal byte array",
   "version": "1.0.0",
   "publisher": "Hieromon",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hieromon/hexliteral.git"
+  },
   "engines": {
     "vscode": "^1.103.0"
   },
